@@ -14,6 +14,7 @@ public class cal {
 
         
         double result;
+        scanner.close();
         if (op.equals("+")) {
             result = n1 + n2;
         } else if (op.equals("-")) {
@@ -26,7 +27,6 @@ public class cal {
             result = 0;
             System.out.println("Incorrect Operator!!");
         }
-        scanner.close();
         System.out.println("Result: " + result);
         
         }
