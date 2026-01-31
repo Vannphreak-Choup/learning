@@ -12,8 +12,7 @@ public class cal {
         System.out.print("Enter your second number: ");
         double n2 = scanner.nextDouble();
 
-        scanner.close();
-
+        
         double result;
         if (op.equals("+")) {
             result = n1 + n2;
@@ -27,9 +26,12 @@ public class cal {
             result = 0;
             System.out.println("Incorrect Operator!!");
         }
+        scanner.close();
         System.out.println("Result: " + result);
         
         }
+
+
         
         
         
