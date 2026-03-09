@@ -32,7 +32,7 @@ public class project_midterm_pos {
                 System.out.println("Invalid input! Nuh Ah");
             }
 
-        }
+        }scanner.close();
 
     }
 
@@ -133,7 +133,7 @@ public class project_midterm_pos {
             } else {
                 break;
             }
-        }
+        }scanner.close();
 
         double change = cash - total;
         System.out.printf("Change:%20s$%.2f\n", "", change);
@@ -177,6 +177,7 @@ public class project_midterm_pos {
     public static void main(String[] args) {
         print_product();
         condition();
+        
 
     }
 }
