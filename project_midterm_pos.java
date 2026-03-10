@@ -142,28 +142,35 @@ public class project_midterm_pos {
         }
         System.out.println("------------------------------------");
         System.out.printf("TOTAL:%21s$%.2f\n", "", total);
-        double cash;
-
-        // conditions to loops if the cash is below the total amount
-        while (true) {
-            System.out.print("Cash: $");
-            cash = scanner.nextDouble();
-
-            if (cash < total) {
-                System.out.println("Not enough cash! Please enter again.");
-            } else {
-                break;
-            }
-        }scanner.close();
-
-        // calculate the cash and gives the change and print out the rest of the receipt
-        double change = cash - total;
-        System.out.printf("Change:%20s$%.2f\n", "", change);
-
         System.out.println("====================================");
         System.out.println("        Thank You For Shopping!");
         System.out.println("          Please Come Again");
         System.out.println("====================================");
+        double cash;
+
+        // conditions to loops to check if cash is equal to double and not below total
+        while (true) {
+            System.out.print("Cash: $");
+            String input = scanner.nextLine();
+
+            if (!input.matches("[+-]?\\d*(\\.\\d+)?")) {
+                System.out.println("Invalid input! Please enter a number");
+            }else {
+                cash = Double.parseDouble(input);
+                if (cash < total) {
+                    System.out.println("Not enough cash! TRY AGAIN!!!!");
+                }else {
+                    break;
+                }
+            }
+
+        }scanner.close();
+
+        // calculation of the change
+        double change = cash - total;
+        System.out.printf("Change: $%.2f", change);
+
+
     }
 
     // data structure to store products, id, and price using static methods which is easier to call and use
