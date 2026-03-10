@@ -140,6 +140,8 @@ public class project_midterm_pos {
             System.out.printf("Discount (0%%):%13s$%.2f\n", "", discount);
 
         }
+
+        // display the total amount
         System.out.println("------------------------------------");
         System.out.printf("TOTAL:%21s$%.2f\n", "", total);
         System.out.println("====================================");
@@ -153,9 +155,12 @@ public class project_midterm_pos {
             System.out.print("Cash: $");
             String input = scanner.nextLine();
 
+            // if input does not matches the regex of double
             if (!input.matches("[+-]?\\d*(\\.\\d+)?")) {
                 System.out.println("Invalid input! Please enter a number");
             }else {
+
+                // convert cash into input as double
                 cash = Double.parseDouble(input);
                 if (cash < total) {
                     System.out.println("Not enough cash! TRY AGAIN!!!!");
