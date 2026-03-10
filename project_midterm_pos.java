@@ -4,6 +4,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class project_midterm_pos {
+    // main
+    public static void main(String[] args) {
+        print_product();
+        condition();
+
+    }
+
+    // conditions while loop
     public static void condition() {
         List<String> order = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
@@ -36,7 +44,7 @@ public class project_midterm_pos {
 
     }
 
-
+    // add to cart method
     public static void AddtoCart(String ProductID, List<String> cart) {
         for (int i = 0; i < id.size(); i++) {
             if (ProductID.equalsIgnoreCase(id.get(i))) {
@@ -47,6 +55,8 @@ public class project_midterm_pos {
         }
         System.out.println("Product ID not found!!");
     }
+
+    // remove item from cart method
     public static void RemoveItem(String ProductID, List<String> cart) {
         for (int i = 0; i < id.size(); i++) {
             if (cart.isEmpty()) {
@@ -64,6 +74,8 @@ public class project_midterm_pos {
             }
         }
     }
+
+    // checkout method
     public static void CheckOut(List<String> value) {
 
         if (value.isEmpty()) {
@@ -73,6 +85,8 @@ public class project_midterm_pos {
         Scanner scanner = new Scanner(System.in);
         List<String> printed = new ArrayList<>();
         double subtotal = 0;
+
+        // display the receipt
         System.out.println("\n\n====================================");
         System.out.println("              ABC STORE");
         System.out.println("        Phnom Penh, Cambodia");
@@ -85,6 +99,8 @@ public class project_midterm_pos {
         System.out.println("\n------------------------------------");
         System.out.printf("%-20s %-5s %-10s\n", "Item", "Qty", "Price");
         System.out.println("------------------------------------");
+
+        // find the quantity of the product or duplicates and count it
         for (int i = 0; i < value.size(); i++) {
             String currentItem = value.get(i);
             if (printed.contains(currentItem)) {
@@ -107,6 +123,7 @@ public class project_midterm_pos {
             printed.add(currentItem);
         }
 
+        // the discount if they buy more than 10$ they get a discount of 10%
         double discount = 0;
         if (subtotal >= 10) {
             discount = subtotal * 0.1;
@@ -114,6 +131,8 @@ public class project_midterm_pos {
         double total = subtotal - discount;
         System.out.println("------------------------------------");
         System.out.printf("Subtotal:%18s$%.2f\n", "", subtotal);
+
+        // display the discount 0% and 10%
         if (discount > 0) {
             System.out.printf("Discount (10%%):%13s$%.2f\n", "", discount);
         }else {
@@ -124,6 +143,7 @@ public class project_midterm_pos {
         System.out.printf("TOTAL:%21s$%.2f\n", "", total);
         double cash;
 
+        // conditions to loops if the cash is below the total amount
         while (true) {
             System.out.print("Cash: $");
             cash = scanner.nextDouble();
@@ -135,6 +155,7 @@ public class project_midterm_pos {
             }
         }scanner.close();
 
+        // calculate the cash and gives the change and print out the rest of the receipt
         double change = cash - total;
         System.out.printf("Change:%20s$%.2f\n", "", change);
 
@@ -144,6 +165,7 @@ public class project_midterm_pos {
         System.out.println("====================================");
     }
 
+    // data structure to store products, id, and price using static methods which is easier to call and use
     public static List<String> products = new ArrayList<>(List.of(
                 "Coca-Cola", "Pepsi", "Mineral Water", "Iced Coffee", "Sandwich",
                 "Cheeseburger", "French Fries", "Instant Noodles", "Chocolate Bar",
@@ -159,6 +181,7 @@ public class project_midterm_pos {
                 "P006", "P007", "P008", "P009", "P010",
                 "P011", "P012", "P013", "P014", "P015", "P016", "P017"));
 
+    // display the sales
     public static void print_product() {
         System.out.println("\n          Welcome to ABC STORE!!!🎀");
         System.out.println("------------------------------------------------");
@@ -174,12 +197,6 @@ public class project_midterm_pos {
         System.out.println("------------------------------------------------");
     }
 
-    public static void main(String[] args) {
-        print_product();
-        condition();
-        
-
-    }
 }
 
 
