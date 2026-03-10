@@ -58,28 +58,29 @@ public class project_midterm_pos {
 
     // remove item from cart method
     public static void RemoveItem(String ProductID, List<String> cart) {
+        if (cart.isEmpty()) {
+            System.out.println("Your Cart is Empty!!");
+        }
         for (int i = 0; i < id.size(); i++) {
-            if (cart.isEmpty()) {
-                System.out.println("Your Cart is Empty!!");
-                return;
-
-            }else if (!cart.contains(products.get(i)) && !ProductID.equalsIgnoreCase(id.get(i))) {
-                System.out.println("You cart does not contain this item");
-                return;
-
-            }else if (cart.contains(products.get(i)) && ProductID.equalsIgnoreCase(id.get(i))) {
+            if (cart.contains(products.get(i)) && ProductID.equalsIgnoreCase(id.get(i))) {
                 cart.remove(products.get(i));
                 System.out.println("\n" + products.get(i) + " has been removed!");
                 return;
+
+            }else if (!cart.contains(products.get(i)) && ProductID.equalsIgnoreCase(id.get(i))) {
+                System.out.println("Your cart does not contain this product id");
+                return;
+
             }
+
         }
+        System.out.println("This is not the ID! (-_-)");
     }
 
     // checkout method
     public static void CheckOut(List<String> value) {
-
         if (value.isEmpty()) {
-            System.out.println("Your cart is empty!");
+            System.out.println("You didn't buy anything :(");
             return;
         }
         Scanner scanner = new Scanner(System.in);
