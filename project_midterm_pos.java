@@ -17,7 +17,7 @@ public class project_midterm_pos {
         Scanner scanner = new Scanner(System.in);
         String user;
         while (true) {
-            System.out.println("\n1. Add to Cart\n2. View Item in Cart\n3. Remove Item From Cart\n4. Checkout");
+            System.out.println("\n1. Add to Cart\n2. View Item in Cart\n3. Remove Item From Cart\n4. Checkout\n5. Show Product");
             System.out.print("Enter your input: ");
             user = scanner.nextLine();
             if (user.equals("1")) {
@@ -36,6 +36,8 @@ public class project_midterm_pos {
                 CheckOut(order);
                 break;
 
+            }else if (user.equals("5")) {
+                print_product();
             }else {
                 System.out.println("Invalid input! Nuh Ah");
             }
