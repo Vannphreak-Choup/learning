@@ -1,2 +1,2 @@
-""This repository is for building small mini project and learning !!!! 
-    PYTHON      JAVA""
+# learning repositiory
+**This repository is for building small mini project and learning !!**
